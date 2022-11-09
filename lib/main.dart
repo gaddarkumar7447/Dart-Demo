@@ -29,13 +29,102 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Demo text'),
       ),
-      body: Center(
-        child: InkWell(
-          onTap: () {},
-          borderRadius: BorderRadius.circular(3),
-          child: const Text('Hello world'),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+          child: Column(
+              children : [
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 10, bottom: 10),
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 200,
+                          width: 200,
+                          margin: EdgeInsets.only(right: 10),
+                          color: Colors.cyan[100],
+                        ),
+                        Container(
+                          height: 200,
+                          width: 200,
+                          margin: EdgeInsets.only(right: 10),
+                          color: Colors.white60,
+                        ),
+                        Container(
+                          height: 200,
+                          width: 200,
+                          margin: EdgeInsets.only(right: 10),
+                          color: Colors.yellow,
+                        ),
+                        Container(
+                          height: 200,
+                          width: 200,
+                          margin: EdgeInsets.only(right: 10),
+                          color: Colors.amberAccent,
+                        ),
+                        Container(
+                          height: 200,
+                          width: 200,
+                          margin: EdgeInsets.only(right: 10),
+                          color: Colors.black26,
+                        ),
+                        Container(
+                          height: 200,
+                          width: 200,
+                          margin: EdgeInsets.only(right: 10),
+                          color: Colors.white38,
+                        ),
+                        Container(
+                          height: 200,
+                          width: 200,
+                          margin: EdgeInsets.only(right: 10),
+                          color: Colors.lightBlue,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 200,
+                  margin: EdgeInsets.only(bottom: 10),
+                  color: Colors.cyan[50],
+                ),
+                Container(
+                  height: 200,
+                  margin: EdgeInsets.only(bottom: 10),
+                  color: Colors.cyan[200],
+                ),
+                Container(
+                  height: 200,
+                  margin: EdgeInsets.only(bottom: 10),
+                  color: Colors.cyan[300],
+                ),
+                Container(
+                  height: 200,
+                  margin: EdgeInsets.only(bottom: 10),
+                  color: Colors.cyan,
+                ),
+                Container(
+                  height: 200,
+                  margin: EdgeInsets.only(bottom: 10),
+                  color: Colors.cyan[400],
+                ),
+                Container(
+                  height: 200,
+                  margin: EdgeInsets.only(bottom: 10),
+                  color: Colors.cyan[900],
+                ),
+                Container(
+                  height: 200,
+                  margin: EdgeInsets.only(bottom: 10),
+                  color: Colors.cyan[800],
+                ),
+              ]
+          ),
         ),
-      ),
+      )
     );
   }
 }
@@ -149,8 +238,6 @@ class _MyHomePageState extends State<MyHomePage> {
          backgroundColor: Colors.blueGrey,
 
         );*/
-  }
-}
 
 void _showToast(BuildContext context) {
   final scaffold = ScaffoldMessenger.of(context);
