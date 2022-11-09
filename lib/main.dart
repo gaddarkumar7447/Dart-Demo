@@ -13,6 +13,41 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primarySwatch: Colors.cyan,
+      ),
+      home: const HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Demo text'),
+      ),
+      body: Center(
+        child: InkWell(
+          onTap: () {},
+          borderRadius: BorderRadius.circular(3),
+          child: const Text('Hello world'),
+        ),
+      ),
+    );
+  }
+}
+/*class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
         primarySwatch: Colors.lightBlue,
       ),
       home: const MyHomePage(title: 'Demo'),
@@ -46,13 +81,42 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
 
         body: Center(
+          child: ElevatedButton(
+            child: const Text('click'),
+            onPressed: () {
+            print('clicked button');
+            },
+          ),
+        ),
+    );*/
+        /*
+       Container(
+          height: 200,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              const Text("Gaddar"),
+              const Text("Kumar"),
+              const Text("chaudhary"),
+              const Text("Ram"),
+              const Text("shiv", style: TextStyle(fontSize: 25),),
+              ElevatedButton(onPressed: () {
+                print('hii');
+              }, child: const Text('Button'))
+            ],
+          ),
+        )
+       Center(
           child: SizedBox(
             width: 200,
             height: 140,
             child: Image.asset('assets/images/sdda.jpg'),
           ),
+          
         )
-      /*Center(
+
+       Center(
           child: OutlinedButton(
               onPressed: () {
                 _showToast(context);
@@ -60,9 +124,9 @@ class _MyHomePageState extends State<MyHomePage> {
               onLongPress: () => print('Long pressed'),
 
               child: const Text('Button')),
-        )*/
+        )
 
-        /*Center(
+         Center(
         child: Container(
           width: 200,
           height: 200,
@@ -72,19 +136,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
           ),
         ),
-      )*/
+      )
 
-        /*Center(
+         Center(
         child: Container(
           width: 100,
           height: 100,
           color: Colors.brown,
           child: const Text("Hello developers"),
         ),
-      ),*/
-        /*backgroundColor: Colors.blueGrey,*/
+      ),
+         backgroundColor: Colors.blueGrey,
 
-        );
+        );*/
   }
 }
 
