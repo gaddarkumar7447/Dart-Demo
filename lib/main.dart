@@ -25,11 +25,92 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var arrName = [
+      'Gaddar',
+      'Kumar',
+      'Chaudhary',
+      'Shivam',
+      'Ranjeet',
+      'Ghan',
+      'Gaddar',
+      'Kumar',
+      'Chaudhary',
+      'Shivam',
+      'Ranjeet',
+      'Ghan',
+      'Gaddar',
+      'Kumar',
+      'Chaudhary',
+      'Shivam',
+      'Ranjeet',
+      'Ghan'
+    ];
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Demo text'),
-      ),
-      body: SingleChildScrollView(
+        appBar: AppBar(
+          title: const Text('Demo text'),
+        ),
+        body: ListView.separated(
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                arrName[index],
+                style:
+                    const TextStyle(fontWeight: FontWeight.w500, fontSize: 26),
+              ),
+            );
+          },
+          itemCount: arrName.length,
+          separatorBuilder: (BuildContext context, int index) {
+            return const Divider(height: 50, thickness: 5, color: Colors.black26,);
+          },
+        )
+        /*ListView(
+        scrollDirection: Axis.horizontal,
+        children: const [
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text('One', style: TextStyle(fontSize: 25, color: Colors.lightBlue), ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text('Two', style: TextStyle(fontSize: 25, color: Colors.lightBlue), ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text('Three', style: TextStyle(fontSize: 25, color: Colors.lightBlue), ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text('Four', style: TextStyle(fontSize: 25, color: Colors.lightBlue), ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text('Five', style: TextStyle(fontSize: 25, color: Colors.lightBlue), ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text('Six', style: TextStyle(fontSize: 25, color: Colors.lightBlue), ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text('Seven', style: TextStyle(fontSize: 25, color: Colors.lightBlue), ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text('Eight', style: TextStyle(fontSize: 25, color: Colors.lightBlue), ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text('Nine', style: TextStyle(fontSize: 25, color: Colors.lightBlue), ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text('Ten', style: TextStyle(fontSize: 25, color: Colors.lightBlue), ),
+          ),
+        ],
+      )*/
+        /*SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
           child: Column(
@@ -124,8 +205,8 @@ class HomeScreen extends StatelessWidget {
               ]
           ),
         ),
-      )
-    );
+      )*/
+        );
   }
 }
 /*class MyApp extends StatelessWidget {
@@ -178,7 +259,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
     );*/
-        /*
+/*
        Container(
           height: 200,
           child: Column(
