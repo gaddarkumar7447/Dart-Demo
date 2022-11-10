@@ -47,9 +47,76 @@ class HomeScreen extends StatelessWidget {
     ];
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Demo text'),
-        ),
-        body: ListView.separated(
+          title: const Text('Demo text'),),
+        body: Center(
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 4,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.amber,
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.cyan,
+                ),
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.deepOrange,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.black26,
+              ),
+              Expanded(
+                flex: 3,
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.blue,
+                ),
+              )
+            ],
+          )
+
+        )
+      /*Container(
+          width: double.infinity,
+          height: double.infinity,
+          color: Colors.lightBlue,
+          child: Center(
+            child: Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.blue.shade100,
+                borderRadius: BorderRadius.circular(11),
+                border: Border.all(
+                  color: Colors.amberAccent,
+                  width: 2,
+                ),
+                boxShadow: const [
+                  BoxShadow(
+                    blurRadius: 10,
+                    color: Colors.white70,
+                    blurStyle: BlurStyle.normal
+                  )
+                ]
+              ),
+            ),
+          ),
+        )*/
+
+      /*ListView.separated(
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
@@ -64,7 +131,7 @@ class HomeScreen extends StatelessWidget {
           separatorBuilder: (BuildContext context, int index) {
             return const Divider(height: 50, thickness: 5, color: Colors.black26,);
           },
-        )
+        )*/
         /*ListView(
         scrollDirection: Axis.horizontal,
         children: const [
