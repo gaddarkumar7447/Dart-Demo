@@ -47,49 +47,83 @@ class HomeScreen extends StatelessWidget {
     ];
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Demo text'),),
-        body: Center(
+          title: const Text('Demo text'),
+        ),
+        body: ListView.separated(
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                  ListTile(
+                    leading: Text('$index'),
+                    title: Text(arrName[index]),
+                    subtitle: const Text("Name"),
+                    trailing: const Icon(Icons.add),
+                    onTap: () => {print('$index')},
+                  ),
+              ],
+            );
+          },
+          itemCount: arrName.length, separatorBuilder: (BuildContext context, int index) {
+            return const Divider(height: 20, color: Colors.indigo,);
+        },
+        )
+        /*Center(
           child: Row(
             children: <Widget>[
               Expanded(
                 flex: 4,
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.amber,
+                child: Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    color: Colors.amber,
+                  ),
                 ),
               ),
               Expanded(
                 flex: 2,
+                child: Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.cyan,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4),
                 child: Container(
                   width: 100,
                   height: 100,
-                  color: Colors.cyan,
+                  color: Colors.deepOrange,
                 ),
               ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.deepOrange,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.black26,
+              Padding(
+                padding: const EdgeInsets.all(4),
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.black26,
+                ),
               ),
               Expanded(
                 flex: 3,
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.blue,
+                child: Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.blue,
+                  ),
                 ),
               )
             ],
           )
 
-        )
-      /*Container(
+        )*/
+        /*Container(
           width: double.infinity,
           height: double.infinity,
           color: Colors.lightBlue,
@@ -116,7 +150,7 @@ class HomeScreen extends StatelessWidget {
           ),
         )*/
 
-      /*ListView.separated(
+        /*ListView.separated(
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
