@@ -1,3 +1,4 @@
+import 'package:dart_pro/ui_design/textStyle.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -49,24 +50,37 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Demo text'),
         ),
-        body: ListView.separated(
+        body: Column(
+          children: [
+            Text('Gaddar', style: Theme.of(context).textTheme.headline6,),
+            Text('Kumar', style: TextStyle(fontSize: 25, color: Colors.blueAccent, fontWeight: FontWeight.w400),),
+            Text('Chaudhary', style: TextStyle(fontSize: 25, color: Colors.blueAccent, fontWeight: FontWeight.w500),),
+            Text('SKY', style: textStyle(),)
+          ],
+        )
+
+      /*ListView.separated(
           itemBuilder: (context, index) {
             return Column(
               children: [
-                  ListTile(
-                    leading: Text('$index'),
-                    title: Text(arrName[index]),
-                    subtitle: const Text("Name"),
-                    trailing: const Icon(Icons.add),
-                    onTap: () => {print('$index')},
-                  ),
+                ListTile(
+                  leading: Text('$index'),
+                  title: Text(arrName[index]),
+                  subtitle: const Text("Name"),
+                  trailing: const Icon(Icons.add),
+                  onTap: () => {print('$index')},
+                ),
               ],
             );
           },
-          itemCount: arrName.length, separatorBuilder: (BuildContext context, int index) {
-            return const Divider(height: 20, color: Colors.indigo,);
-        },
-        )
+          itemCount: arrName.length,
+          separatorBuilder: (BuildContext context, int index) {
+            return const Divider(
+              height: 20,
+              color: Colors.indigo,
+            );
+          },
+        )*/
         /*Center(
           child: Row(
             children: <Widget>[
