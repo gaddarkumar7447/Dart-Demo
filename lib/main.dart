@@ -26,6 +26,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var email = TextEditingController();
+    var pass = TextEditingController();
     var arrName = [
       'Gaddar',
       'Kumar',
@@ -47,10 +49,61 @@ class HomeScreen extends StatelessWidget {
       'Ghan'
     ];
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Demo text'),
+      appBar: AppBar(
+        title: const Text('Demo text'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+                width: 320,
+                child: TextField(
+                  keyboardType: TextInputType.phone,
+                  obscureText: true,
+                  controller: pass,
+                  decoration: InputDecoration(
+                      hintText: 'Enter the password',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)))),
+                )),
+            Container(
+              height: 20,
+            ),
+            SizedBox(
+              width: 320,
+              child: TextField(
+                keyboardType: TextInputType.emailAddress,
+                controller: email,
+                decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.email),
+                    suffixIcon: IconButton(
+                        onPressed: () {
+                          print('$key');
+                        },
+                        icon: const Icon(Icons.remove_red_eye)),
+                    focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.yellowAccent)),
+                    hintText: 'Enter the email',
+                    border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)))),
+              ),
+              
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 20),
+              width: 220,
+              height: 50,
+              child: ElevatedButton(onPressed: () {
+                    String s = email.text.toString();
+                    String sr = pass.text.toString();
+                    print('Email : $s | pass : $sr');
+                  }, child: Text('LogIn')),
+            )
+          ],
         ),
-        body: Center(
+      ),
+      /*Center(
           child: InkWell(
             onTap: () => {
             print('hello gaddar')
@@ -64,10 +117,10 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-        )
+        )*/
     );
-        
-      /*Column(
+
+    /*Column(
           children: [
             Text('Gaddar', style: Theme.of(context).textTheme.headline6,),
             Text('Kumar', style: TextStyle(fontSize: 25, color: Colors.blueAccent, fontWeight: FontWeight.w400),),
@@ -76,7 +129,7 @@ class HomeScreen extends StatelessWidget {
           ],
         )*/
 
-      /*ListView.separated(
+    /*ListView.separated(
           itemBuilder: (context, index) {
             return Column(
               children: [
@@ -98,7 +151,7 @@ class HomeScreen extends StatelessWidget {
             );
           },
         )*/
-        /*Center(
+    /*Center(
           child: Row(
             children: <Widget>[
               Expanded(
@@ -154,7 +207,7 @@ class HomeScreen extends StatelessWidget {
           )
 
         )*/
-        /*Container(
+    /*Container(
           width: double.infinity,
           height: double.infinity,
           color: Colors.lightBlue,
@@ -181,7 +234,7 @@ class HomeScreen extends StatelessWidget {
           ),
         )*/
 
-        /*ListView.separated(
+    /*ListView.separated(
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
@@ -197,7 +250,7 @@ class HomeScreen extends StatelessWidget {
             return const Divider(height: 50, thickness: 5, color: Colors.black26,);
           },
         )*/
-        /*ListView(
+    /*ListView(
         scrollDirection: Axis.horizontal,
         children: const [
           Padding(
@@ -242,7 +295,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       )*/
-        /*SingleChildScrollView(
+    /*SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
           child: Column(
@@ -338,7 +391,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       )*/
-    
   }
 }
 /*class MyApp extends StatelessWidget {
