@@ -50,14 +50,31 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Demo text'),
         ),
-        body: Column(
+        body: Center(
+          child: InkWell(
+            onTap: () => {
+            print('hello gaddar')
+            },
+            child: Card(
+              elevation: 5,
+              shadowColor: Colors.blue,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text('Hello', style: TextStyle(fontSize: 25), ),
+              ),
+            ),
+          ),
+        )
+    );
+        
+      /*Column(
           children: [
             Text('Gaddar', style: Theme.of(context).textTheme.headline6,),
             Text('Kumar', style: TextStyle(fontSize: 25, color: Colors.blueAccent, fontWeight: FontWeight.w400),),
             Text('Chaudhary', style: TextStyle(fontSize: 25, color: Colors.blueAccent, fontWeight: FontWeight.w500),),
             Text('SKY', style: textStyle(),)
           ],
-        )
+        )*/
 
       /*ListView.separated(
           itemBuilder: (context, index) {
@@ -321,7 +338,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       )*/
-        );
+    
   }
 }
 /*class MyApp extends StatelessWidget {
