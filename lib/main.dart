@@ -1,5 +1,6 @@
 import 'package:dart_pro/ui_design/textStyle.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +29,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var email = TextEditingController();
     var pass = TextEditingController();
+    DateTime now = DateTime.now();
+    String convertedDateTime = "${now.hour.toString().padLeft(2,'0')}:${now.minute.toString().padLeft(2,'0')}";
+    String str = DateFormat('hh:mm:ss a').format(now);
     var arrName = [
       'Gaddar',
       'Kumar',
@@ -88,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                     border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)))),
               ),
-              
+
             ),
             Container(
               margin: EdgeInsets.only(top: 20),
@@ -99,7 +103,16 @@ class HomeScreen extends StatelessWidget {
                     String sr = pass.text.toString();
                     print('Email : $s | pass : $sr');
                   }, child: Text('LogIn')),
-            )
+            ),
+
+            Padding(
+              padding:  EdgeInsets.all(8.0),
+              child: Text('$str', style: TextStyle(fontSize: 25), ),
+
+            ),
+            ElevatedButton(onPressed: (){
+
+            }, child: Text('Current Time'))
           ],
         ),
       ),
