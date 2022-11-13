@@ -30,7 +30,8 @@ class HomeScreen extends StatelessWidget {
     var email = TextEditingController();
     var pass = TextEditingController();
     DateTime now = DateTime.now();
-    String convertedDateTime = "${now.hour.toString().padLeft(2,'0')}:${now.minute.toString().padLeft(2,'0')}";
+    String convertedDateTime =
+        "${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')}";
     String str = DateFormat('hh:mm:ss a').format(now);
     var arrName = [
       'Gaddar',
@@ -92,51 +93,84 @@ class HomeScreen extends StatelessWidget {
                     border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)))),
               ),
-
             ),
             Container(
               margin: EdgeInsets.only(top: 20),
               width: 220,
               height: 50,
-              child: ElevatedButton(onPressed: () {
+              child: ElevatedButton(
+                  onPressed: () {
                     String s = email.text.toString();
                     String sr = pass.text.toString();
                     print('Email : $s | pass : $sr');
-                  }, child: Text('LogIn')),
+                  },
+                  child: Text('LogIn')),
             ),
-
             Padding(
-              padding:  EdgeInsets.all(8.0),
-              child: Text('$str', style: TextStyle(fontSize: 25), ),
-
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                '$str',
+                style: TextStyle(fontSize: 25),
+              ),
             ),
-            ElevatedButton(onPressed: (){
-
-            }, child: Text('Current Time')),
+            ElevatedButton(onPressed: () {}, child: Text('Current Time')),
             Container(
               margin: EdgeInsets.only(top: 30),
               width: 330,
               child: TextField(
                 keyboardType: TextInputType.datetime,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10)
-                  )
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10))),
+              ),
+            ),
+            ElevatedButton(
+                onPressed: () async {
+                  DateTime? datePicker = await showDatePicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(2021),
+                      lastDate: DateTime(2025));
+                  if (datePicker != null) {
+                    print(
+                        '${datePicker.day}.${datePicker.month}.${datePicker.year}');
+                  }
+                },
+                child: Text('Select date')),
+            Padding(
+              padding:  EdgeInsets.all(8.0),
+              child: Container(
+                margin: EdgeInsets.only(top: 20),
+                child: ElevatedButton(
+                  onPressed: () async{
+                    TimeOfDay? time = await showTimePicker(
+                        initialEntryMode: TimePickerEntryMode.input,
+                        context: context,
+                        initialTime: TimeOfDay.now());
+                    if(time != null){
+                      print('${time.hour}:${time.minute}');
+                    }
+                  },
+                  child: Text('Select Time'),
                 ),
               ),
             ),
-            ElevatedButton(onPressed: () async {
-              DateTime? datePicker = await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(2021), lastDate: DateTime(2025));
-              if(datePicker != null){
-                print('${datePicker.day}.${datePicker.month}.${datePicker.year}');
-                  }
-            }, child: Text('Select date')),
-            Container(
-              child: ElevatedButton(onPressed: ()  {
-                DateTime time = showTimePicker(context: context, initialTime: TimeOfDay.now()) as DateTime;
-                  print('${time.hour}:${time.minute}');
-              }, child: Text('Select Time'),),
-            )
+            Row(
+              children: const [
+                Padding(
+                  padding: EdgeInsets.all(4.0),
+                  child: Text(
+                    'Gaddar Kumar Chaudhary',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+                Visibility(
+                    child: Icon(
+                  Icons.verified,
+                  color: Colors.blue,
+                ))
+              ],
+            ),
           ],
         ),
       ),
