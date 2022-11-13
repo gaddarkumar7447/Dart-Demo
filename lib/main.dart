@@ -112,7 +112,31 @@ class HomeScreen extends StatelessWidget {
             ),
             ElevatedButton(onPressed: (){
 
-            }, child: Text('Current Time'))
+            }, child: Text('Current Time')),
+            Container(
+              margin: EdgeInsets.only(top: 30),
+              width: 330,
+              child: TextField(
+                keyboardType: TextInputType.datetime,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10)
+                  )
+                ),
+              ),
+            ),
+            ElevatedButton(onPressed: () async {
+              DateTime? datePicker = await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(2021), lastDate: DateTime(2025));
+              if(datePicker != null){
+                print('${datePicker.day}.${datePicker.month}.${datePicker.year}');
+                  }
+            }, child: Text('Select date')),
+            Container(
+              child: ElevatedButton(onPressed: ()  {
+                DateTime time = showTimePicker(context: context, initialTime: TimeOfDay.now()) as DateTime;
+                  print('${time.hour}:${time.minute}');
+              }, child: Text('Select Time'),),
+            )
           ],
         ),
       ),
