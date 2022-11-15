@@ -1,3 +1,4 @@
+import 'package:dart_pro/ui_design/SecondActivity.dart';
 import 'package:dart_pro/ui_design/textStyle.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -30,8 +31,7 @@ class HomeScreen extends StatelessWidget {
     var email = TextEditingController();
     var pass = TextEditingController();
     DateTime now = DateTime.now();
-    String convertedDateTime =
-        "${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')}";
+    String convertedDateTime = "${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')}";
     String str = DateFormat('hh:mm:ss a').format(now);
     var arrName = [
       'Gaddar',
@@ -67,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                   keyboardType: TextInputType.phone,
                   obscureText: true,
                   controller: pass,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       hintText: 'Enter the password',
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10)))),
@@ -138,16 +138,16 @@ class HomeScreen extends StatelessWidget {
                 },
                 child: Text('Select date')),
             Padding(
-              padding:  EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: Container(
                 margin: EdgeInsets.only(top: 20),
                 child: ElevatedButton(
-                  onPressed: () async{
+                  onPressed: () async {
                     TimeOfDay? time = await showTimePicker(
                         initialEntryMode: TimePickerEntryMode.input,
                         context: context,
                         initialTime: TimeOfDay.now());
-                    if(time != null){
+                    if (time != null) {
                       print('${time.hour}:${time.minute}');
                     }
                   },
@@ -171,6 +171,10 @@ class HomeScreen extends StatelessWidget {
                 ))
               ],
             ),
+            ElevatedButton(onPressed: () => {
+              Navigator.push(context,
+            MaterialPageRoute(builder: (context) =>  HomeScreen1() ))
+            }, child: Text('Grid View'))
           ],
         ),
       ),
