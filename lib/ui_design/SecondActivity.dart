@@ -17,13 +17,23 @@ class HomeScreen1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void callBak(){
+      print('HEllo');
+    }
     return Scaffold(
         appBar: AppBar(
           title: const Text('Second Activity'),
         ),
-        body: GridView.builder( gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5, mainAxisSpacing: 3, crossAxisSpacing: 3),itemBuilder: (context, index) {
+        body:ElevatedButton(
+          onPressed: () {
+            callBak();
+          },
+          child: Text('Clicked'),
+        )
+      /*GridView.builder( gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5, mainAxisSpacing: 3, crossAxisSpacing: 3),itemBuilder: (context, index) {
             return Container(color: colorA[index],);
-        },itemCount: colorA.length,));
+        },itemCount: colorA.length,)*/
+    );
     /*GridView.extent(maxCrossAxisExtent: 100, crossAxisSpacing: 5,
             mainAxisSpacing: 5,
             children: [

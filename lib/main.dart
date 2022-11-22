@@ -31,7 +31,8 @@ class HomeScreen extends StatelessWidget {
     var email = TextEditingController();
     var pass = TextEditingController();
     DateTime now = DateTime.now();
-    String convertedDateTime = "${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')}";
+    String convertedDateTime =
+        "${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')}";
     String str = DateFormat('hh:mm:ss a').format(now);
     var arrName = [
       'Gaddar',
@@ -171,10 +172,11 @@ class HomeScreen extends StatelessWidget {
                 ))
               ],
             ),
-            ElevatedButton(onPressed: () => {
-              Navigator.push(context,
-            MaterialPageRoute(builder: (context) =>  HomeScreen1() ))
-            }, child: Text('Grid View'))
+            ElevatedButton(
+                onPressed: () => {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen1()))
+                    },
+                child: Text('Grid View'))
           ],
         ),
       ),
